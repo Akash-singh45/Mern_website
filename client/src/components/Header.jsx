@@ -27,6 +27,11 @@ export default function Header() {
               Home
             </li>
           </Link>
+          <Link to='/internships'>
+            <li className='hidden sm:inline text-slate-700 hover:underline'>
+              Internships
+            </li>
+          </Link>
           <Link to='/about'>
             <li className='hidden sm:inline text-slate-700 hover:underline'>
               About
@@ -39,7 +44,7 @@ export default function Header() {
               <li className=' text-slate-700 hover:underline'> Sign in</li>
             )}
           </Link>
-          <Link to="/internships" style={{ marginRight: '1rem' }}>Internships</Link>
+          
        
         </ul>
       </div>
