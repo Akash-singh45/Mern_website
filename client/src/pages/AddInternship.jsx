@@ -6,6 +6,7 @@ export default function AddInternship() {
     title: '',
     duration: '',
     formLink: '',
+    description: '', // New field
   });
 
   const handleChange = (e) => {
@@ -15,9 +16,9 @@ export default function AddInternship() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/api/internships', formData); // Adjust the API if needed
+      await axios.post('/api/internships', formData); // Make sure backend accepts `description`
       alert('Internship added successfully!');
-      setFormData({ title: '', duration: '', formLink: '' });
+      setFormData({ title: '', duration: '', formLink: '', description: '' });
     } catch (err) {
       console.error('Error adding internship:', err);
       alert('Failed to add internship.');
@@ -48,9 +49,26 @@ export default function AddInternship() {
           required
         >
           <option value="">Select Duration</option>
+          <option value="1/2/3 Months">1/2/3 Months</option>
+          <option value="1/3 Months">1/3 Months</option>
           <option value="1 Month">1 Month</option>
-          <option value="2 Months">2 Months</option>
-          <option value="3 Months">3 Months</option>
+        
+        </select>
+
+        {/* 🔽 New Description Dropdown */}
+        <select
+          name="description"
+          value={formData.description}
+          onChange={handleChange}
+          className="w-full px-4 py-2 border border-gray-300 rounded"
+          required
+        >
+          <option value="">Select Internship Category</option>
+          <option value="Artificial Intelligence & Data">Artificial Intelligence & Data</option>
+          <option value="Software Development">Software Development</option>
+          <option value="Business & Management">Business & Management</option>
+          <option value="Programming & Technical">Programming & Technical</option>
+          <option value="Data Visualization & Analytics">Data Visualization & Analytics</option>
         </select>
 
         <input
@@ -73,3 +91,4 @@ export default function AddInternship() {
     </div>
   );
 }
+

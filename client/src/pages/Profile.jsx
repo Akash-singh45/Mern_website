@@ -1,5 +1,7 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useRef, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import {
   getDownloadURL,
   getStorage,
@@ -14,8 +16,8 @@ import {
   deleteUserFailure,
   deleteUserStart,
   deleteUserSuccess,
+  signOutUserStart,
 } from '../redux/user/userSlice';
-import { useDispatch } from 'react-redux';
 
 export default function Profile() {
   const fileRef = useRef(null);
@@ -26,17 +28,17 @@ export default function Profile() {
   const [formData, setFormData] = useState({});
   const [updateSuccess, setUpdateSuccess] = useState(false);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  // firebase storage
-  // allow read;
-  // allow write: if
-  // request.resource.size < 2 * 1024 * 1024 &&
-  // request.resource.contentType.matches('image/.*')
+  // Redirect if user is not logged in
+  useEffect(() => {
+    if (!currentUser) {
+      navigate('/sign-in');
+    }
+  }, [currentUser, navigate]);
 
   useEffect(() => {
-    if (file) {
-      handleFileUpload(file);
-    }
+    if (file) handleFileUpload(file);
   }, [file]);
 
   const handleFileUpload = (file) => {
@@ -57,11 +59,12 @@ export default function Profile() {
       },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) =>
-          setFormData({ ...formData, avatar: downloadURL })
+          setFormData((prev) => ({ ...prev, avatar: downloadURL }))
         );
       }
     );
   };
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
@@ -72,9 +75,7 @@ export default function Profile() {
       dispatch(updateUserStart());
       const res = await fetch(`/api/user/update/${currentUser._id}`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
       const data = await res.json();
@@ -82,13 +83,13 @@ export default function Profile() {
         dispatch(updateUserFailure(data.message));
         return;
       }
-
       dispatch(updateUserSuccess(data));
       setUpdateSuccess(true);
     } catch (error) {
       dispatch(updateUserFailure(error.message));
     }
   };
+
   const handleDeleteUser = async () => {
     try {
       dispatch(deleteUserStart());
@@ -101,14 +102,27 @@ export default function Profile() {
         return;
       }
       dispatch(deleteUserSuccess(data));
+      navigate('/sign-in');
     } catch (error) {
       dispatch(deleteUserFailure(error.message));
     }
   };
 
-  if (!currentUser) {
-    return <div>Loading...</div>; // or redirect to sign-in, or show a message
-  }
+  const handleSignOut = async () => {
+    try {
+      dispatch(signOutUserStart());
+      const res = await fetch('/api/auth/signout');
+      const data = await res.json();
+      if (data.success === false) {
+        dispatch(deleteUserFailure(data.message));
+        return;
+      }
+      dispatch(deleteUserSuccess(data));
+      navigate('/sign-in'); // You can optionally dispatch a separate signOutSuccess() action
+    } catch (error) {
+      dispatch(deleteUserFailure(error.message));
+    }
+  };
 
   return (
     <div className='p-3 max-w-lg mx-auto'>
@@ -134,19 +148,19 @@ export default function Profile() {
         <p className='text-sm self-center'>
           {fileUploadError ? (
             <span className='text-red-700'>
-              Error Image upload (image must be less than 2 mb)
+              Error: Image must be less than 2 MB
             </span>
           ) : filePerc > 0 && filePerc < 100 ? (
             <span className='text-slate-700'>{`Uploading ${filePerc}%`}</span>
           ) : filePerc === 100 ? (
-            <span className='text-green-700'>Image successfully uploaded!</span>
+            <span className='text-green-700'>Image uploaded!</span>
           ) : (
             ''
           )}
         </p>
         <input
           type='text'
-          placeholder='username'
+          placeholder='Username'
           defaultValue={currentUser.username}
           id='username'
           className='border p-3 rounded-lg'
@@ -154,7 +168,7 @@ export default function Profile() {
         />
         <input
           type='email'
-          placeholder='email'
+          placeholder='Email'
           id='email'
           defaultValue={currentUser.email}
           className='border p-3 rounded-lg'
@@ -162,7 +176,7 @@ export default function Profile() {
         />
         <input
           type='password'
-          placeholder='password'
+          placeholder='New Password'
           onChange={handleChange}
           id='password'
           className='border p-3 rounded-lg'
@@ -174,19 +188,23 @@ export default function Profile() {
           {loading ? 'Loading...' : 'Update'}
         </button>
       </form>
+
       <div className='flex justify-between mt-5'>
-         <span
+        <span
           onClick={handleDeleteUser}
           className='text-red-700 cursor-pointer'
         >
-          Delete account
+          Delete Account
         </span>
-        <span className='text-red-700 cursor-pointer'>Sign out</span>
+        <span onClick={handleSignOut} className='text-red-700 cursor-pointer'>
+          Sign Out
+        </span>
       </div>
-      <p className='text-red-700 mt-5'>{error ? error : ''}</p>
-      <p className='text-green-700 mt-5'>
-        {updateSuccess ? 'User is updated successfully!' : ''}
-      </p>
+
+      {error && <p className='text-red-700 mt-5'>{error}</p>}
+      {updateSuccess && (
+        <p className='text-green-700 mt-5'>User updated successfully!</p>
+      )}
     </div>
   );
 }

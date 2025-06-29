@@ -5,7 +5,16 @@ import { Briefcase } from 'lucide-react';
 export default function Internships() {
   const [internships, setInternships] = useState([]);
   const [filtered, setFiltered] = useState([]);
-  const [selectedDuration, setSelectedDuration] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState('All');
+
+  const categories = [
+    'All',
+    'Artificial Intelligence & Data',
+    'Software Development',
+    'Business & Management',
+    'Programming & Technical',
+    'Data Visualization & Analytics',
+  ];
 
   useEffect(() => {
     const fetchInternships = async () => {
@@ -20,12 +29,12 @@ export default function Internships() {
     fetchInternships();
   }, []);
 
-  const filterByDuration = (duration) => {
-    setSelectedDuration(duration);
-    if (duration === 'All') {
+  const filterByCategory = (category) => {
+    setSelectedCategory(category);
+    if (category === 'All') {
       setFiltered(internships);
     } else {
-      setFiltered(internships.filter((i) => i.duration === duration));
+      setFiltered(internships.filter((i) => i.description === category));
     }
   };
 
@@ -39,19 +48,19 @@ export default function Internships() {
           Explore industry-grade internships designed for your growth.
         </p>
 
-        {/* Filter Buttons */}
+        {/* 🔍 Category Filter */}
         <div className="flex flex-wrap justify-center gap-3 mb-10">
-          {['All', '1 Month', '3 Months'].map((dur) => (
+          {categories.map((category) => (
             <button
-              key={dur}
-              onClick={() => filterByDuration(dur)}
+              key={category}
+              onClick={() => filterByCategory(category)}
               className={`px-4 py-2 rounded-full font-medium text-sm transition ${
-                selectedDuration === dur
+                selectedCategory === category
                   ? 'bg-[#8A68C8] text-white shadow-md'
                   : 'bg-white border border-gray-300 text-[#8A68C8] hover:bg-[#ece6f9]'
               }`}
             >
-              {dur}
+              {category}
             </button>
           ))}
         </div>
@@ -80,6 +89,9 @@ export default function Internships() {
                     <p className="text-sm text-gray-600 mt-1">
                       Duration: <span className="font-medium">{internship.duration}</span>
                     </p>
+                    <p className="text-sm text-gray-500 mt-1">
+                      Category: {internship.description}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -90,3 +102,4 @@ export default function Internships() {
     </div>
   );
 }
+
