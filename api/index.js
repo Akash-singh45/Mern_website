@@ -7,37 +7,41 @@ import internshipRoutes from './routes/internship.routes.js';
 import cookieParser from 'cookie-parser';
 import partnerRoutes from './routes/partner.routes.js';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
 dotenv.config();
 
-
+// Setup __dirname for ESM
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 mongoose.connect(process.env.MONGO)
-    .then(() => console.log('MongoDB connected!'))
-    .catch(err => console.error('MongoDB connection error:', err));
+  .then(() => console.log('MongoDB connected!'))
+  .catch(err => console.error('MongoDB connection error:', err));
+
 const app = express();
 
-const __dirname = path.resolve();
 app.use(express.json());
 app.use(cookieParser());
+
+// API routes
 app.use('/api/user', userRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/internships', internshipRoutes);
 app.use('/api/partner', partnerRoutes);
 
+// Serve frontend
+app.use(express.static(path.join(__dirname, '../client/dist')));
 
-
-
-app.use(express.static(path.join(__dirname, '/client/dist')));
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client','dist','index.html'));
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
 
 app.listen(3000, () => {
-    console.log('Server is running on port 3000!');
-    }
-)
+  console.log('Server is running on port 3000!');
+});
 
+// Error handler
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
   const message = err.message || 'Internal Server Error';
