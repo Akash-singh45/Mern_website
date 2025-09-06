@@ -15,7 +15,8 @@ dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-mongoose.connect(process.env.MONGO)
+mongoose
+  .connect(process.env.MONGO)
   .then(() => console.log('MongoDB connected!'))
   .catch(err => console.error('MongoDB connection error:', err));
 
@@ -33,7 +34,8 @@ app.use('/api/partner', partnerRoutes);
 // Serve frontend
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
-app.get('*', (req, res) => {
+// ✅ Express v5 fix: use regex instead of "*"
+app.get(/.*/, (req, res) => {
   res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
 
