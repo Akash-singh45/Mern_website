@@ -38,46 +38,48 @@ export default function PartnerForm() {
   };
 
   return (
-    <div className="bg-gradient-to-b from-white via-slate-50 to-slate-100">
+    <div className="bg-gradient-to-b from-white via-slate-50 to-slate-100 min-h-screen">
       {/* Hero Section */}
-      <section className="text-center py-20 px-6 md:px-20 bg-gradient-to-r from-indigo-50 to-purple-50">
-        <h1 className="text-5xl font-extrabold text-gray-900 mb-4">Hire Job-Ready Interns & Freshers — at Zero Cost</h1>
-        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+      <section className="text-center py-16 px-4 sm:px-6 md:px-20 bg-gradient-to-r from-indigo-50 to-purple-50">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
+          Hire Job-Ready Interns & Freshers — at Zero Cost
+        </h1>
+        <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
           AdacodeAI partners with startups and growing teams to deliver pre-evaluated, project-tested talent across <strong>AI, Data, and Development domains</strong>. Focus on what matters — we handle the hiring.
         </p>
       </section>
 
       {/* Why Partner With Us */}
-      <section className="py-16 px-6 md:px-20 grid md:grid-cols-4 gap-8 text-center">
-        <div className="bg-white rounded-xl shadow-md p-6">
-          <CheckCircle className="mx-auto text-purple-600 mb-2" size={32} />
-          <h3 className="text-xl font-semibold mb-1">Zero Hiring Cost</h3>
+      <section className="py-12 px-4 sm:px-6 md:px-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+        <div className="bg-white rounded-xl shadow-md p-6 flex flex-col items-center">
+          <CheckCircle className="text-purple-600 mb-2" size={32} />
+          <h3 className="text-lg sm:text-xl font-semibold mb-1">Zero Hiring Cost</h3>
           <p className="text-gray-600 text-sm">Absolutely no fees. Our hiring support is 100% free for companies.</p>
         </div>
-        <div className="bg-white rounded-xl shadow-md p-6">
-          <Briefcase className="mx-auto text-purple-600 mb-2" size={32} />
-          <h3 className="text-xl font-semibold mb-1">Pre-Evaluated Talent</h3>
+        <div className="bg-white rounded-xl shadow-md p-6 flex flex-col items-center">
+          <Briefcase className="text-purple-600 mb-2" size={32} />
+          <h3 className="text-lg sm:text-xl font-semibold mb-1">Pre-Evaluated Talent</h3>
           <p className="text-gray-600 text-sm">Interns trained on real projects, assessed through outcomes, not resumes.</p>
         </div>
-        <div className="bg-white rounded-xl shadow-md p-6">
-          <Users className="mx-auto text-purple-600 mb-2" size={32} />
-          <h3 className="text-xl font-semibold mb-1">Tailored Matching</h3>
+        <div className="bg-white rounded-xl shadow-md p-6 flex flex-col items-center">
+          <Users className="text-purple-600 mb-2" size={32} />
+          <h3 className="text-lg sm:text-xl font-semibold mb-1">Tailored Matching</h3>
           <p className="text-gray-600 text-sm">We understand your need and recommend best-fit candidates.</p>
         </div>
-        <div className="bg-white rounded-xl shadow-md p-6">
-          <Clock className="mx-auto text-purple-600 mb-2" size={32} />
-          <h3 className="text-xl font-semibold mb-1">Quick Turnaround</h3>
+        <div className="bg-white rounded-xl shadow-md p-6 flex flex-col items-center">
+          <Clock className="text-purple-600 mb-2" size={32} />
+          <h3 className="text-lg sm:text-xl font-semibold mb-1">Quick Turnaround</h3>
           <p className="text-gray-600 text-sm">From contact to hiring in days, not weeks.</p>
         </div>
       </section>
 
       {/* Form Section */}
-      <section className="py-20 px-6 md:px-20">
-        <div className="max-w-3xl mx-auto bg-white shadow-xl rounded-2xl p-10 border border-gray-100">
-          <h2 className="text-4xl font-bold text-center text-gray-800 mb-6">
+      <section className="py-16 px-4 sm:px-6 md:px-20">
+        <div className="max-w-3xl mx-auto bg-white shadow-xl rounded-2xl p-6 sm:p-10 border border-gray-100">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-gray-800 mb-6">
             Let's Build Together
           </h2>
-          <p className="text-center text-gray-500 mb-10">
+          <p className="text-center text-gray-500 mb-8 sm:mb-10">
             Fill out the form below and we’ll get in touch to support your hiring needs.
           </p>
           <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -88,7 +90,7 @@ export default function PartnerForm() {
               value={formData.companyName}
               onChange={handleChange}
               required
-              className="border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-indigo-400 outline-none"
+              className="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-indigo-400 outline-none"
             />
             <input
               type="text"
@@ -97,7 +99,7 @@ export default function PartnerForm() {
               value={formData.contactPerson}
               onChange={handleChange}
               required
-              className="border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-indigo-400 outline-none"
+              className="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-indigo-400 outline-none"
             />
             <input
               type="email"
@@ -106,7 +108,7 @@ export default function PartnerForm() {
               value={formData.email}
               onChange={handleChange}
               required
-              className="border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-indigo-400 outline-none"
+              className="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-indigo-400 outline-none"
             />
             <input
               type="text"
@@ -114,14 +116,14 @@ export default function PartnerForm() {
               placeholder="Phone Number"
               value={formData.phone}
               onChange={handleChange}
-              className="border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-indigo-400 outline-none"
+              className="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-indigo-400 outline-none"
             />
             <select
               name="hiringType"
               value={formData.hiringType}
               onChange={handleChange}
               required
-              className="col-span-1 md:col-span-2 border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-indigo-400 outline-none"
+              className="w-full col-span-1 md:col-span-2 border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-indigo-400 outline-none"
             >
               <option value="">Select Hiring Type</option>
               <option value="Internship">Internship</option>
@@ -134,7 +136,7 @@ export default function PartnerForm() {
               placeholder="Job Title"
               value={formData.jobTitle}
               onChange={handleChange}
-              className="col-span-1 md:col-span-2 border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-indigo-400 outline-none"
+              className="w-full col-span-1 md:col-span-2 border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-indigo-400 outline-none"
             />
             <textarea
               name="jobDescription"
@@ -142,11 +144,11 @@ export default function PartnerForm() {
               rows="5"
               value={formData.jobDescription}
               onChange={handleChange}
-              className="col-span-1 md:col-span-2 border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-indigo-400 outline-none resize-none"
+              className="w-full col-span-1 md:col-span-2 border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-indigo-400 outline-none resize-none"
             ></textarea>
             <button
               type="submit"
-              className="col-span-1 md:col-span-2 bg-indigo-600 text-white text-lg font-semibold py-3 rounded-lg hover:bg-indigo-700 transition duration-300"
+              className="w-full md:w-auto col-span-1 md:col-span-2 bg-indigo-600 text-white text-lg font-semibold py-3 rounded-lg hover:bg-indigo-700 transition duration-300"
             >
               Submit Request
             </button>

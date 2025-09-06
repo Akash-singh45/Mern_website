@@ -39,7 +39,7 @@ export default function Internships() {
   };
 
   return (
-    <div className="bg-gradient-to-b from-[#F3F0FF] to-[#FDFDFD] min-h-screen py-16 px-6">
+    <div className="bg-gradient-to-b from-[#F3F0FF] to-[#FDFDFD] min-h-screen py-16 px-4 sm:px-6 md:px-10">
       <div className="max-w-5xl mx-auto">
 
         {/* Hero Section */}
@@ -75,7 +75,7 @@ export default function Internships() {
         {filtered.length === 0 ? (
           <p className="text-center text-gray-500">No internship openings available at the moment.</p>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-8 gap-x-6">
             {filtered.map((internship) => (
               <div
                 key={internship._id}
@@ -109,7 +109,7 @@ export default function Internships() {
         )}
 
         {/* Why We're Different Section */}
-        <div className="mt-24 bg-white p-10 sm:p-12 rounded-2xl shadow-xl border border-gray-200">
+        <div className="mt-24 bg-white p-6 sm:p-10 md:p-12 rounded-2xl shadow-xl border border-gray-200">
           <div className="text-center mb-10">
             <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-4 leading-tight">
               More Than an Internship — A Career Launchpad
@@ -120,7 +120,7 @@ export default function Internships() {
             </p>
           </div>
 
-          <ul className="space-y-6 text-gray-800 text-base sm:text-lg leading-relaxed pl-6 sm:pl-8 list-disc max-w-4xl mx-auto">
+          <ul className="space-y-6 text-gray-800 text-base sm:text-lg leading-relaxed pl-4 sm:pl-8 list-disc max-w-4xl mx-auto">
             <li>
               <strong className="text-[#6A4BB1]">Career-first evaluation:</strong> Our internships double as hiring trials. Top performers are <span className="text-purple-600 font-medium">interviewed and placed</span> in full-time or stipend-based roles.
             </li>

@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 export default function OAuth() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const handleGoogleClick = async () => {
     try {
       const provider = new GoogleAuthProvider();
@@ -29,16 +30,33 @@ export default function OAuth() {
       dispatch(signInSuccess(data));
       navigate('/');
     } catch (error) {
-      console.log('could not sign in with google', error);
+      console.log('Could not sign in with Google', error);
     }
   };
+
   return (
     <button
       onClick={handleGoogleClick}
-      type='button'
-      className='bg-red-700 text-white p-3 rounded-lg uppercase hover:opacity-95'
+      type="button"
+      className="
+        bg-red-700 
+        text-white 
+        w-full sm:w-auto 
+        px-4 sm:px-6 
+        py-3 sm:py-3.5 
+        rounded-lg 
+        uppercase 
+        text-sm sm:text-base 
+        font-semibold 
+        hover:opacity-95 
+        transition 
+        duration-200
+        flex 
+        items-center 
+        justify-center
+      "
     >
-      Continue with google
+      Continue with Google
     </button>
   );
 }
