@@ -80,7 +80,7 @@ export default function SignIn() {
         <p className='mt-6 text-center text-gray-600 text-sm'>
           Don&apos;t have an account?{' '}
           <Link
-            to='/signup'
+            to='/sign-up'
             className='text-indigo-600 font-semibold hover:underline'
           >
             Sign Up

@@ -17,9 +17,7 @@ export default function OAuth() {
 
       const res = await fetch('/api/auth/google', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: result.user.displayName,
           email: result.user.email,
@@ -39,18 +37,20 @@ export default function OAuth() {
       onClick={handleGoogleClick}
       type="button"
       className="
-        bg-red-700 
+        w-full 
+        bg-red-600 
         text-white 
-        w-full sm:w-auto 
         px-4 sm:px-6 
         py-3 sm:py-3.5 
         rounded-lg 
         uppercase 
         text-sm sm:text-base 
         font-semibold 
-        hover:opacity-95 
+        shadow-md
+        hover:bg-red-700 
+        hover:shadow-lg 
         transition 
-        duration-200
+        duration-200 
         flex 
         items-center 
         justify-center
@@ -60,3 +60,4 @@ export default function OAuth() {
     </button>
   );
 }
+

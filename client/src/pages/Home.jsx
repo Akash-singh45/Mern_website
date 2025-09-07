@@ -135,26 +135,29 @@ export default function Home() {
 
       {/* Support Section */}
       <section className="bg-gradient-to-r from-white via-violet-50 to-purple-50 py-12 sm:py-20 px-4 sm:px-6 md:px-20 rounded-2xl sm:rounded-3xl shadow-xl mt-12 sm:mt-20">
-        <div className="grid md:grid-cols-2 gap-8 sm:gap-10 items-center">
-          <img
-            src="/static/images/empathy-support.png"
-            alt="Career Advice"
-            className="max-w-md mx-auto"
-          />
-          <div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-purple-700 mb-4">Here to Support You, Always 💜</h2>
-            <p className="text-base sm:text-lg text-gray-700 mb-6 leading-relaxed">
-              <strong>Lost in your journey? We’re here.</strong> Whether it’s career guidance, mentorship, or mental support, <span className="font-semibold text-indigo-700">AdacodeAI</span> is more than a platform — it’s a community that stands by you. <strong>And the best part? It’s absolutely free — whether you're our intern or not.</strong>
-            </p>
-            <a
-              href="mailto:adacodeai@gmail.com"
-              className="inline-block bg-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-purple-700 shadow"
-            >
-              📨 Reach Out Anytime
-            </a>
-          </div>
-        </div>
-      </section>
+  <div className="grid md:grid-cols-2 gap-8 sm:gap-10 items-center">
+    <img
+      src="/static/images/empathy-support.png"
+      alt="Career Advice"
+      className="w-full max-w-md mx-auto"
+    />
+    <div className="max-w-xl mx-auto md:mx-0">
+      <h2 className="text-3xl sm:text-4xl font-bold text-purple-700 mb-4">
+        Here to Support You, Always 💜
+      </h2>
+      <p className="text-base sm:text-lg text-gray-700 mb-6 leading-relaxed">
+        <strong>Lost in your journey? We’re here.</strong> Whether it’s career guidance, mentorship, or mental support, <span className="font-semibold text-indigo-700">AdacodeAI</span> is more than a platform — it’s a community that stands by you. <strong>And the best part? It’s absolutely free — whether you're our intern or not.</strong>
+      </p>
+      <a
+        href="mailto:adacodeai@gmail.com"
+        className="inline-block bg-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-purple-700 shadow"
+      >
+        📨 Reach Out Anytime
+      </a>
+    </div>
+  </div>
+</section>
+
 
       {/* About Section */}
       <section className="bg-gradient-to-br from-white to-slate-100 py-12 sm:py-24 px-4 sm:px-6 md:px-28 flex flex-col-reverse lg:flex-row items-center gap-8 sm:gap-16">
