@@ -49,7 +49,7 @@ export default function Home() {
         <meta property="og:description" content="Launch your career. Apply for exclusive internships across 10+ fields including AI, Data Analytics, and Full Stack Development." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.adacodeai.com/" />
-        <meta property="og:image" content="https://www.adacodeai.com/static/images/adacode-banner.png" />
+        <meta property="og:image" content="https://www.adacodeai.com/static/images/adacode-banner-final.png" />
       </Helmet>
       {/* Hero Section */}
       <section className="min-h-[80vh] flex flex-col-reverse lg:flex-row items-center justify-between px-4 sm:px-6 md:px-16 py-12 sm:py-16 gap-8 sm:gap-16 bg-gradient-to-br from-white via-slate-50 to-slate-100">

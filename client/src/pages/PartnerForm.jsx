@@ -49,7 +49,7 @@ export default function PartnerForm() {
         <meta property="og:description" content="Transform your fresher hiring pipeline. Recruit pre-vetted, certified interns in AI, Machine Learning, Data Analytics, Full Stack, and Finance. Partner with us today." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.adacodeai.com/" />
-        <meta property="og:image" content="https://www.adacodeai.com/static/images/adacode-banner.png" />
+        <meta property="og:image" content="https://www.adacodeai.com/static/images/adacode-banner-final.png" />
       </Helmet>
       {/* Hero Section */}
       <section className="text-center py-16 px-4 sm:px-6 md:px-20 bg-gradient-to-r from-indigo-50 to-purple-50">
