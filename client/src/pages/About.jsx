@@ -10,6 +10,12 @@ export default function About() {
         <title>About Adacode AI | Empowering Tech Careers & Fresher Hiring</title>
         <meta name="description" content="Discover how Adacode AI is bridging the gap between ambitious students and top recruiters. We provide hands-on training, verified certificates, and direct hiring pipelines." />
         <link rel="canonical" href="https://www.adacodeai.com/about" />
+
+        <meta property="og:title" content="Adacode AI | Premium Internships in Tech, Data & Business" />
+        <meta property="og:description" content="Discover how Adacode AI is bridging the gap between ambitious students and top recruiters. We provide hands-on training, verified certificates, and direct hiring pipelines." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.adacodeai.com/" />
+        <meta property="og:image" content="https://www.adacodeai.com/static/images/adacode-banner.png" />
       </Helmet>
       {/* Hero Section */}
       <section className="max-w-6xl mx-auto py-20 px-6 lg:px-16">

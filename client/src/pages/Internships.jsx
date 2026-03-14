@@ -46,6 +46,12 @@ export default function Internships() {
         <title>AI, Data Science & Analytics Internships | Adacode AI</title>
         <meta name="description" content="Apply for hands-on internships in Artificial Intelligence, Machine Learning, Data Science, and Data Analytics. Earn verified certificates and build your resume." />
         <link rel="canonical" href="https://www.adacodeai.com/internships" />
+
+        <meta property="og:title" content="Adacode AI | Premium Internships in Tech, Data & Business" />
+        <meta property="og:description" content="Apply for hands-on internships in Artificial Intelligence, Machine Learning, Data Science, and Data Analytics. Earn verified certificates and build your resume." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.adacodeai.com/" />
+        <meta property="og:image" content="https://www.adacodeai.com/static/images/adacode-banner.png" />
       </Helmet>
 
         {/* Hero Section */}

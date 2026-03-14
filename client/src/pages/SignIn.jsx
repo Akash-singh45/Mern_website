@@ -47,6 +47,12 @@ export default function SignIn() {
         <title>Sign In | Adacode AI Portal</title>
         <meta name="description" content="Access your Adacode AI account to apply for premium tech internships or manage your company's recruitment pipeline." />
         <link rel="canonical" href="https://www.adacodeai.com/sign-in" />
+
+        <meta property="og:title" content="Adacode AI | Premium Internships in Tech, Data & Business" />
+        <meta property="og:description" content="Access your Adacode AI account to apply for premium tech internships or manage your company's recruitment pipeline." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.adacodeai.com/" />
+        <meta property="og:image" content="https://www.adacodeai.com/static/images/adacode-banner.png" />
       </Helmet>
         <h2 className='text-2xl sm:text-3xl font-bold mb-6 text-center text-gray-800'>
           Sign In to Your Account

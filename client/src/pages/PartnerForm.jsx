@@ -44,6 +44,12 @@ export default function PartnerForm() {
         <title>Hire AI, Data & Tech Interns | Partner with Adacode AI</title>
         <meta name="description" content="Transform your fresher hiring pipeline. Recruit pre-vetted, certified interns in AI, Machine Learning, Data Analytics, Full Stack, and Finance. Partner with us today." />
         <link rel="canonical" href="https://www.adacodeai.com/partner" />
+
+        <meta property="og:title" content="Adacode AI | Premium Internships in Tech, Data & Business" />
+        <meta property="og:description" content="Transform your fresher hiring pipeline. Recruit pre-vetted, certified interns in AI, Machine Learning, Data Analytics, Full Stack, and Finance. Partner with us today." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.adacodeai.com/" />
+        <meta property="og:image" content="https://www.adacodeai.com/static/images/adacode-banner.png" />
       </Helmet>
       {/* Hero Section */}
       <section className="text-center py-16 px-4 sm:px-6 md:px-20 bg-gradient-to-r from-indigo-50 to-purple-50">
