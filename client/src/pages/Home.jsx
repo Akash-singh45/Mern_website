@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 import '../index.css';
 import { Star } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const successStories = [
   {
@@ -39,6 +40,11 @@ export default function Home() {
 
   return (
     <div className="bg-gradient-to-br from-white to-slate-100 text-gray-900 font-sans">
+      <Helmet>
+        <title>Adacode AI | Premium Internships in Tech, Data & Business</title>
+        <meta name="description" content="Apply for exclusive internships across 10+ fields including AI, Data Analytics, Full Stack Development, Finance, and Sales. Earn verified certificates." />
+        <link rel="canonical" href="https://www.adacodeai.com/" />
+      </Helmet>
       {/* Hero Section */}
       <section className="min-h-[80vh] flex flex-col-reverse lg:flex-row items-center justify-between px-4 sm:px-6 md:px-16 py-12 sm:py-16 gap-8 sm:gap-16 bg-gradient-to-br from-white via-slate-50 to-slate-100">
         <div className="max-w-2xl animate-fade-in-up text-center lg:text-left">

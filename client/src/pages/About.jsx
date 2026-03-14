@@ -1,10 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/button';
+import { Helmet } from 'react-helmet-async';
 
 export default function About() {
   return (
     <div className="bg-gradient-to-br from-white to-[#f5f7fa] min-h-screen text-gray-900 font-sans">
+      <Helmet>
+        <title>About Adacode AI | Empowering Tech Careers & Fresher Hiring</title>
+        <meta name="description" content="Discover how Adacode AI is bridging the gap between ambitious students and top recruiters. We provide hands-on training, verified certificates, and direct hiring pipelines." />
+        <link rel="canonical" href="https://www.adacodeai.com/about" />
+      </Helmet>
       {/* Hero Section */}
       <section className="max-w-6xl mx-auto py-20 px-6 lg:px-16">
         <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 text-center mb-6 leading-tight">

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Briefcase } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 export default function Internships() {
   const [internships, setInternships] = useState([]);
@@ -41,6 +42,11 @@ export default function Internships() {
   return (
     <div className="bg-gradient-to-b from-[#F3F0FF] to-[#FDFDFD] min-h-screen py-16 px-4 sm:px-6 md:px-10">
       <div className="max-w-5xl mx-auto">
+        <Helmet>
+        <title>AI, Data Science & Analytics Internships | Adacode AI</title>
+        <meta name="description" content="Apply for hands-on internships in Artificial Intelligence, Machine Learning, Data Science, and Data Analytics. Earn verified certificates and build your resume." />
+        <link rel="canonical" href="https://www.adacodeai.com/internships" />
+      </Helmet>
 
         {/* Hero Section */}
         <div className="text-center mb-12">

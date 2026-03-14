@@ -7,6 +7,7 @@ import {
   signInFailure,
 } from '../redux/user/userSlice';
 import OAuth from '../components/OAuth';
+import { Helmet } from 'react-helmet-async';
 
 export default function SignIn() {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -42,6 +43,11 @@ export default function SignIn() {
   return (
     <div className='min-h-screen bg-gradient-to-br from-white to-slate-100 flex items-center justify-center px-4'>
       <div className='w-full max-w-md bg-white rounded-2xl shadow-xl p-6 sm:p-10'>
+        <Helmet>
+        <title>Sign In | Adacode AI Portal</title>
+        <meta name="description" content="Access your Adacode AI account to apply for premium tech internships or manage your company's recruitment pipeline." />
+        <link rel="canonical" href="https://www.adacodeai.com/sign-in" />
+      </Helmet>
         <h2 className='text-2xl sm:text-3xl font-bold mb-6 text-center text-gray-800'>
           Sign In to Your Account
         </h2>

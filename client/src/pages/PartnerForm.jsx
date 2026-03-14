@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { CheckCircle, Briefcase, Users, Clock } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 export default function PartnerForm() {
   const [formData, setFormData] = useState({
@@ -39,6 +40,11 @@ export default function PartnerForm() {
 
   return (
     <div className="bg-gradient-to-b from-white via-slate-50 to-slate-100 min-h-screen">
+      <Helmet>
+        <title>Hire AI, Data & Tech Interns | Partner with Adacode AI</title>
+        <meta name="description" content="Transform your fresher hiring pipeline. Recruit pre-vetted, certified interns in AI, Machine Learning, Data Analytics, Full Stack, and Finance. Partner with us today." />
+        <link rel="canonical" href="https://www.adacodeai.com/partner" />
+      </Helmet>
       {/* Hero Section */}
       <section className="text-center py-16 px-4 sm:px-6 md:px-20 bg-gradient-to-r from-indigo-50 to-purple-50">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
